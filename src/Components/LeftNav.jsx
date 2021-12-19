@@ -4,9 +4,11 @@ import { MdDashboard, MdAdd } from 'react-icons/md';
 import {AiOutlineLogout} from 'react-icons/ai';
 import { logout } from '../store/functions';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const LeftNav = () => {
     const history= useHistory();
+    let dispatch= useDispatch();
     
     return (
         <div className={styles.container}>
@@ -22,7 +24,7 @@ const LeftNav = () => {
                 </div>
             </div>
 
-            <div title="Logout" className={`${styles.icon_container} ${styles.logout_icon}`} onClick={()=> logout()}>
+            <div title="Logout" className={`${styles.icon_container} ${styles.logout_icon}`} onClick={()=> logout(dispatch)}>
                 <AiOutlineLogout className={styles.icon} />
                 <p className={styles.icon_title}>Logout</p>
             </div>

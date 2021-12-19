@@ -15,8 +15,8 @@ const slice = createSlice({
         toggleAdmin(state) {
             state.admin= !state.admin;
         }, 
-        setUserId(state, payload) {
-            console.log(payload);
+        setUserId(state, data) {
+            state.userId= data.payload;
         }
     }
 })

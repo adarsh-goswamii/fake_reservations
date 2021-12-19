@@ -11,6 +11,12 @@
       "number": "1234567899",
       "password": "sparsh.",
       "id": 2
+    },
+    {
+      "email": "harshita@gmail.com",
+      "number": "1212121212",
+      "password": "harshita.",
+      "id": 3
     }
   ],
   "stations": [
@@ -50,5 +56,33 @@
   "admin": {
     "name": "admin@fake.com",
     "password": "admin"
+  },
+  "reservations": {
+    "1": [
+      {
+        "id": 1,
+        "src": "New Delhi",
+        "dst": "Mumbai",
+        "date": "21-10-2021"
+      },
+      {
+        "id": 2,
+        "src": "Agra",
+        "dst": "Mumbai",
+        "date": "21-10-2021"
+      },
+      {
+        "id": 3,
+        "src": "Chandigarh",
+        "dst": "Mumbai",
+        "date": "21-10-2021"
+      },
+      {
+        "id": 4,
+        "src": "Lucknow",
+        "dst": "Mumbai",
+        "date": "21-10-2021"
+      }
+    ]
   }
 }

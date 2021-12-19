@@ -6,6 +6,7 @@ import FilledButton from './Buttons/FilledButton';
 import { motion } from 'framer-motion';
 import { RegisterValid } from '../store/functions';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 
 const RegisterCard = () => {
@@ -14,6 +15,7 @@ const RegisterCard = () => {
     const [password, setPassword]= useState('');
     const [confirmPassword, setConfirmPassword]= useState('');
     const history= useHistory();
+    const dispatch= useDispatch();
 
     return (
         <motion.div className={styles.container}>
@@ -35,7 +37,7 @@ const RegisterCard = () => {
                     <Input type="password" placeholder="Confirm Password" setValue={setConfirmPassword}></Input>
                 </motion.div>
                 <motion.div className={styles.btn_container}>
-                    <FilledButton text="Register" enable={true} onClick={()=> RegisterValid(email.keyword, number.keyword, password.keyword, confirmPassword.keyword)()}/>
+                    <FilledButton text="Register" enable={true} onClick={()=> RegisterValid(email.keyword, number.keyword, password.keyword, confirmPassword.keyword, history, dispatch)()}/>
                 </motion.div>
             </motion.div>
         </motion.div>

@@ -1,6 +1,4 @@
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { addUser, validateUser } from "./action_creators";
+import { addUser, getUserId, validateUser } from "./action_creators";
 import { actions } from './store';
 
 export const checkEmail = (email) => {
@@ -9,7 +7,7 @@ export const checkEmail = (email) => {
     return regexp.test(String(email).toLowerCase());
 }
 
-export const RegisterValid = (email, number, password, confirmPassword) => {
+export const RegisterValid = (email, number, password, confirmPassword, history, _dispatch) => {
     return async (dispatch) => {
         let valid = checkEmail(email);
         if (!valid) { alert("Enter a valid email"); return; }
@@ -20,7 +18,12 @@ export const RegisterValid = (email, number, password, confirmPassword) => {
         valid &= (password === confirmPassword);
         if (!valid) { alert("Password don't match, try again"); return; }
 
-        await addUser(email, number, password)();
+        let id= await addUser(email, number, password)();
+        await _dispatch(actions.toggleLoggedin());
+        await _dispatch(actions.setUserId(id));
+        history.replace('/plan-journey');
+        console.log('logged in', id);
+
         return;
     }
 }
@@ -34,21 +37,24 @@ export let LoginValid = (email, password, _dispatch, history) => {
         valid &= String(password).length > 6;
         if (!valid) { alert("Password too short"); return; }
 
-        let match = await validateUser(email, password)();
-        console.log(match);
-        if (!match) alert("No user found with given credentials");
+        let id = await validateUser(email, password)();
+        // console.log(match);
+        if (id=== -1) alert("No user found with given credentials");
         else {
             await _dispatch(actions.toggleLoggedin());
+            await _dispatch(actions.setUserId(id));
             history.replace('/plan-journey');
-            console.log('logged in');
+            console.log('logged in', id);
         }
 
         return;
     };
 };
 
-export const logout = () => {
-    console.log('logged out');
+export const logout = (dispatch) => {
+    dispatch(actions.toggleLoggedin());
+    dispatch(actions.setUserId(-1));
+    console.log('loggedout');
 }
 
 export const bookReservation = (src, dst, date) => {

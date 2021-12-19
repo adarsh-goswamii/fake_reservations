@@ -4,8 +4,8 @@ export let Stations = () => {
     return async (dispatch) => {
         let ret = [];
 
-        let data = await fetch(`http://localhost:8000/stations`);
-        data = await data.json();
+        let response = await axios.get(`http://localhost:8000/stations`);
+        let data = response.data;
         await data.map(async (station) => {
             let {id, name}= station;
             ret.push({id, name});
@@ -17,16 +17,14 @@ export let Stations = () => {
 
 export let validateUser= (_email, _pass) => {
     return async (dispatch) => {
-        let ret= false;
-        let data = await fetch(`http://localhost:8000/users`);
-        data = await data.json();
+        let ret= -1;
+        let response = await axios.get(`http://localhost:8000/users`);
+        let data= response.data;
         await data.map(async (user) => {
-            let {email, password} = user;
+            let {email, password, id} = user;
             
             if(email=== _email && password=== _pass) {
-                console.log(email, _email);
-                console.log(password, _pass);
-                ret= true;
+                ret= id;
             }
         });
 
@@ -36,7 +34,21 @@ export let validateUser= (_email, _pass) => {
 
 export let addUser= (email, number, password) => {
     return async(dispatch) => {
-        console.log(JSON.stringify({email, number, password}));
-        await axios.post('http://localhost:8000/users', {email, number, password});
+        let data= await axios.post('http://localhost:8000/users', {email, number, password});
+        if(data.data!== undefined) return data.data.id;
     };
 };
+
+export let getUser= (_id) => {
+    return async(dispatch) => {
+        let ret= undefined;
+        let response= await axios.get('http://localhost:8000/users');
+        let data= response.data;
+
+        data.map(({id, email, password}) => {
+            if(id=== _id) ret= {email, password};
+        });
+
+        return ret;
+    }
+}
