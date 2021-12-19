@@ -1,5 +1,6 @@
 .container {
     width: 100%;
+    height: 100%;
 }
 
 .hero {
@@ -10,13 +11,11 @@
 
 .heading {
     font-family: bold;
-
 }
 
 .list {
     /* background-color: aqua; */
     width: 95%;
-    height: 20rem;
 }
 
 .pagination {

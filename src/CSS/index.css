@@ -19,7 +19,7 @@ body {
 #root {
     max-width: 1920px;
     width: 100%;
-    min-height: 100vh;
+    max-height: 100vh;
     position: relative;
     overflow: hidden;
 }

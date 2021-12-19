@@ -80,3 +80,13 @@ export let addReservation= (res) => {
         if(response.status!== 201) console.log(response);
     }
 }
+
+export let getReservationById= (id)=> {
+    return async(dispatch) => {
+        let response= await axios.get('http://localhost:8000/reservations/');
+        let data= response.data;
+
+        let ret= data.filter(reservation=> reservation.userId=== id);
+        return ret;
+    }
+}

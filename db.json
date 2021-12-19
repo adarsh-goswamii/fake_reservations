@@ -12,6 +12,12 @@
       "password": "sparsh.",
       "reservations": [],
       "id": 2
+    },
+    {
+      "email": "harshita@gmail.com",
+      "number": "8755689076",
+      "password": "adarsh.",
+      "id": 3
     }
   ],
   "stations": [
@@ -95,6 +101,76 @@
       "date": "2021-12-01",
       "userId": 2,
       "id": 5
+    },
+    {
+      "src": "Mumbai",
+      "dst": "Jalandhar",
+      "date": "2021-12-25",
+      "userId": 3,
+      "id": 6
+    },
+    {
+      "src": "New Delhi",
+      "dst": "New Delhi",
+      "date": "2022-01-01",
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "id": 4,
+      "src": "Lucknow",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "src": "Lucknow",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "src": "Lucknow",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "src": "Lucknow",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "src": "Lucknow",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "src": "Lucknow",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "src": "Lucknow",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "src": "Lucknow",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
     }
   ]
 }

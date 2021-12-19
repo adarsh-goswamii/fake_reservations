@@ -2,11 +2,11 @@ import React from 'react';
 import styles from '../CSS/booking.module.css';
 import { MdDelete } from 'react-icons/md';
 
-const Booking= ()=> {
+const Booking= (props)=> {
     return (
-        <div className={styles.container}>
-            <p className={styles.text}>Delhi  to  Mumbai</p>
-            <p className={styles.text}>12th August 2021</p>
+        <div className={styles.container} >
+            <p className={styles.text}>{`${props.src} to ${props.dst}`}</p>
+            <p className={styles.text}>{props.date}</p>
             <MdDelete className={styles.delete}/>
         </div>
     );
