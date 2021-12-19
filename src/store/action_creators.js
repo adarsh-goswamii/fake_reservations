@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { actions } from './store';
 
 export let Stations = () => {
     return async (dispatch) => {
@@ -7,86 +8,104 @@ export let Stations = () => {
         let response = await axios.get(`http://localhost:8000/stations`);
         let data = response.data;
         await data.map(async (station) => {
-            let {id, name}= station;
-            ret.push({id, name});
+            let { id, name } = station;
+            ret.push({ id, name });
         });
 
         return ret;
     };
 };
 
-export let validateUser= (_email, _pass) => {
+export let validateUser = (_email, _pass) => {
     return async (dispatch) => {
-        let ret= -1;
+        let ret = -1;
         let response = await axios.get(`http://localhost:8000/users`);
-        let data= response.data;
+        let data = response.data;
         await data.map(async (user) => {
-            let {email, password, id} = user;
-            
-            if(email=== _email && password=== _pass) {
-                ret= id;
+            let { email, password, id } = user;
+
+            if (email === _email && password === _pass) {
+                ret = id;
             }
         });
+
+        if (ret === -1) {
+            response = await axios.get(`http://localhost:8000/admin`);
+            let data = response.data;
+            let { name, password } = data;
+
+            if (name === _email && password === _pass) {
+                ret = 0;
+            }
+        }
 
         return ret;
     }
 }
 
-export let addUser= (email, number, password) => {
-    return async(dispatch) => {
-        let data= await axios.post('http://localhost:8000/users', {email, number, password});
-        if(data.data!== undefined) return data.data.id;
+export let addUser = (email, number, password) => {
+    return async (dispatch) => {
+        let data = await axios.post('http://localhost:8000/users', { email, number, password });
+        if (data.data !== undefined) return data.data.id;
     };
 };
 
-export let addReservations= (id) => {
-    return async(dispatch) => {
+export let addReservations = (id) => {
+    return async (dispatch) => {
         // let respose= await.post()
     }
 }
 
-export let getUser= (_id) => {
-    return async(dispatch) => {
-        let ret= undefined;
-        let response= await axios.get('http://localhost:8000/users');
-        let data= response.data;
+export let getUser = (_id) => {
+    return async (dispatch) => {
+        let ret = undefined;
+        let response = await axios.get('http://localhost:8000/users');
+        let data = response.data;
 
-        data.map(({id, email, password}) => {
-            if(id=== _id) ret= {email, password};
+        data.map(({ id, email, password }) => {
+            if (id === _id) ret = { email, password };
         });
 
         return ret;
     }
 }
 
-export let getStationImage= (_name) => {
-    return async(dispatch) => {
-        let ret= undefined;
-        let response= await axios.get('http://localhost:8000/stations');
-        let data= response.data;
+export let getStationImage = (_name) => {
+    return async (dispatch) => {
+        let ret = undefined;
+        let response = await axios.get('http://localhost:8000/stations');
+        let data = response.data;
 
-        data.map(({url, name})=> {
-            if(_name=== name) ret= url;
+        data.map(({ url, name }) => {
+            if (_name === name) ret = url;
         });
 
         return ret;
     }
 }
 
-export let addReservation= (res) => {
-    return async(dispatch) => {
+export let addReservation = (res) => {
+    return async (dispatch) => {
         console.log("res", res);
-        let response= await axios.post(`http://localhost:8000/reservations/`, res);
-        if(response.status!== 201) console.log(response);
+        let response = await axios.post(`http://localhost:8000/reservations/`, res);
+        if (response.status !== 201) console.log(response);
     }
 }
 
-export let getReservationById= (id)=> {
-    return async(dispatch) => {
-        let response= await axios.get('http://localhost:8000/reservations/');
-        let data= response.data;
+export let getReservationById = (id) => {
+    return async (dispatch) => {
+        let response = await axios.get('http://localhost:8000/reservations/');
+        let data = response.data;
 
-        let ret= data.filter(reservation=> reservation.userId=== id);
+        let ret = data.filter(reservation => reservation.userId === id);
         return ret;
+    }
+}
+
+export let getReservationAll = () => {
+    return async (dispatch) => {
+        let response = await axios.get('http://localhost:8000/reservations/');
+        let data = response.data;
+        return data;
     }
 }

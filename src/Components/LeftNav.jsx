@@ -5,10 +5,12 @@ import {AiOutlineLogout} from 'react-icons/ai';
 import { logout } from '../store/functions';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const LeftNav = () => {
     const history= useHistory();
     let dispatch= useDispatch();
+    let {admin} = useSelector(state=> state.state);
     
     return (
         <div className={styles.container}>
@@ -18,13 +20,13 @@ const LeftNav = () => {
                     <p className={styles.icon_title}>Dashboard</p>
                 </div>
 
-                <div title="Plan Journey" className={styles.icon_container} onClick={()=> history.push('/plan-journey')}>
+                {!admin?<div title="Plan Journey" className={styles.icon_container} onClick={()=> history.push('/plan-journey')}>
                     <MdAdd className={styles.icon} />
                     <p className={styles.icon_title}>Plan journey</p>
-                </div>
+                </div>:<></>}
             </div>
 
-            <div title="Logout" className={`${styles.icon_container} ${styles.logout_icon}`} onClick={()=> logout(dispatch)}>
+            <div title="Logout" className={`${styles.icon_container} ${styles.logout_icon}`} onClick={()=> logout(dispatch, admin)}>
                 <AiOutlineLogout className={styles.icon} />
                 <p className={styles.icon_title}>Logout</p>
             </div>

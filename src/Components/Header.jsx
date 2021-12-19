@@ -7,7 +7,7 @@ import { getUser } from '../store/action_creators';
 import { useDispatch } from 'react-redux';
 
 const Header= (props)=> {
-    let {userId}= useSelector(state=> state.state);
+    let {userId, admin}= useSelector(state=> state.state);
     const [email, setEmail]= useState(undefined);
     let dispatch= useDispatch();
 
@@ -22,7 +22,7 @@ const Header= (props)=> {
             <h3 className={styles.middle}>{props.pageOnDisplay}</h3>
             <div className={styles.user_info}>
                 <h3 className={styles.email}>{email}</h3>
-                <OutlineButton text="Logout" enable={true} onClick={()=> logout(dispatch)}/>
+                <OutlineButton text="Logout" enable={true} onClick={()=> logout(dispatch, admin)}/>
             </div>
         </div>
     );

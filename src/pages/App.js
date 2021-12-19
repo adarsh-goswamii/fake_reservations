@@ -8,7 +8,7 @@ import PlanJourney from './PlanJourney';
 import Dashboard from './Dashboard';
 
 const App= ()=> {
-    let {loggedin}= useSelector(state => state.state);
+    let {loggedin, admin}= useSelector(state => state.state);
 
     return (
         <BrowserRouter>
@@ -20,7 +20,7 @@ const App= ()=> {
                         <Register></Register>
                     </Route>
                     <Route path="/plan-journey">
-                        {loggedin ? <PlanJourney /> : <Redirect to='/login' />}
+                        {loggedin ? (admin? <Redirect to='/dashboard' />: <PlanJourney />) : <Redirect to='/login' />}
                     </Route>
                     <Route path="/dashboard">
                         {loggedin ? <Dashboard /> : <Redirect to='/login' />}

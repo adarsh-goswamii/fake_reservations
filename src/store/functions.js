@@ -30,19 +30,13 @@ export const RegisterValid = (email, number, password, confirmPassword, history,
 
 export let LoginValid = (email, password, _dispatch, history) => {
     return async (dispatch) => {
-        console.log("checking wait");
-        let valid = checkEmail(email);
-        if (!valid) { alert("Enter a valid email"); return; }
-        valid &= password !== undefined;
-        valid &= String(password).length > 6;
-        if (!valid) { alert("Password too short"); return; }
-
         let id = await validateUser(email, password)();
-        // console.log(match);
+        
         if (id === -1) alert("No user found with given credentials");
         else {
             await _dispatch(actions.toggleLoggedin());
             await _dispatch(actions.setUserId(id));
+            if(id== 0) _dispatch(actions.toggleAdmin());
             history.replace('/plan-journey');
             console.log('logged in', id);
         }
@@ -51,8 +45,9 @@ export let LoginValid = (email, password, _dispatch, history) => {
     };
 };
 
-export const logout = (dispatch) => {
+export const logout = (dispatch, admin) => {
     dispatch(actions.toggleLoggedin());
+    if(admin) dispatch(actions.toggleAdmin());
     dispatch(actions.setUserId(-1));
     console.log('loggedout');
 }
