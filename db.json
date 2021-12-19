@@ -8,81 +8,93 @@
     },
     {
       "email": "sparsh@gmail.com",
-      "number": "1234567899",
-      "password": "sparsh.",
-      "id": 2
-    },
-    {
-      "email": "harshita@gmail.com",
       "number": "1212121212",
-      "password": "harshita.",
-      "id": 3
+      "password": "sparsh.",
+      "reservations": [],
+      "id": 2
     }
   ],
   "stations": [
     {
       "id": 1,
-      "name": "New Delhi"
+      "name": "New Delhi",
+      "url": "https://i.pinimg.com/564x/88/61/3a/88613a11e92b37909c3cfbc1058d0d15.jpg"
     },
     {
       "id": 2,
-      "name": "Mumbai"
+      "name": "Mumbai",
+      "url": "https://i.pinimg.com/564x/88/61/3a/88613a11e92b37909c3cfbc1058d0d15.jpg"
     },
     {
       "id": 3,
-      "name": "Chandigarh"
+      "name": "Chandigarh",
+      "url": "https://i.pinimg.com/564x/88/61/3a/88613a11e92b37909c3cfbc1058d0d15.jpg"
     },
     {
       "id": 4,
-      "name": "Jalandhar"
+      "name": "Jalandhar",
+      "url": "https://i.pinimg.com/564x/88/61/3a/88613a11e92b37909c3cfbc1058d0d15.jpg"
     },
     {
       "id": 5,
-      "name": "Ludhiana"
+      "name": "Ludhiana",
+      "url": "https://i.pinimg.com/564x/88/61/3a/88613a11e92b37909c3cfbc1058d0d15.jpg"
     },
     {
       "id": 6,
-      "name": "Agra"
+      "name": "Agra",
+      "url": "https://i.pinimg.com/564x/88/61/3a/88613a11e92b37909c3cfbc1058d0d15.jpg"
     },
     {
       "id": 7,
-      "name": "Noida"
+      "name": "Noida",
+      "url": "https://i.pinimg.com/564x/88/61/3a/88613a11e92b37909c3cfbc1058d0d15.jpg"
     },
     {
       "id": 8,
-      "name": "Bangalore"
+      "name": "Bangalore",
+      "url": "https://i.pinimg.com/564x/88/61/3a/88613a11e92b37909c3cfbc1058d0d15.jpg"
     }
   ],
   "admin": {
     "name": "admin@fake.com",
     "password": "admin"
   },
-  "reservations": {
-    "1": [
-      {
-        "id": 1,
-        "src": "New Delhi",
-        "dst": "Mumbai",
-        "date": "21-10-2021"
-      },
-      {
-        "id": 2,
-        "src": "Agra",
-        "dst": "Mumbai",
-        "date": "21-10-2021"
-      },
-      {
-        "id": 3,
-        "src": "Chandigarh",
-        "dst": "Mumbai",
-        "date": "21-10-2021"
-      },
-      {
-        "id": 4,
-        "src": "Lucknow",
-        "dst": "Mumbai",
-        "date": "21-10-2021"
-      }
-    ]
-  }
+  "reservations": [
+    {
+      "id": 1,
+      "src": "New Delhi",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "src": "Agra",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "src": "Chandigarh",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "src": "Lucknow",
+      "dst": "Mumbai",
+      "date": "21-10-2021",
+      "userId": 1
+    },
+    {
+      "src": "Mumbai",
+      "dst": "New Delhi",
+      "date": "2021-12-01",
+      "userId": 2,
+      "id": 5
+    }
+  ]
 }

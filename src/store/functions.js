@@ -1,4 +1,4 @@
-import { addUser, getUserId, validateUser } from "./action_creators";
+import { addReservation, addUser, getUserId, validateUser } from "./action_creators";
 import { actions } from './store';
 
 export const checkEmail = (email) => {
@@ -18,7 +18,7 @@ export const RegisterValid = (email, number, password, confirmPassword, history,
         valid &= (password === confirmPassword);
         if (!valid) { alert("Password don't match, try again"); return; }
 
-        let id= await addUser(email, number, password)();
+        let id = await addUser(email, number, password)();
         await _dispatch(actions.toggleLoggedin());
         await _dispatch(actions.setUserId(id));
         history.replace('/plan-journey');
@@ -39,7 +39,7 @@ export let LoginValid = (email, password, _dispatch, history) => {
 
         let id = await validateUser(email, password)();
         // console.log(match);
-        if (id=== -1) alert("No user found with given credentials");
+        if (id === -1) alert("No user found with given credentials");
         else {
             await _dispatch(actions.toggleLoggedin());
             await _dispatch(actions.setUserId(id));
@@ -57,7 +57,11 @@ export const logout = (dispatch) => {
     console.log('loggedout');
 }
 
-export const bookReservation = (src, dst, date) => {
-    console.log('Reservation complete', src, dst, date);
+export const bookReservation = (src, dst, date, id) => {
+    return async (dispatch) => {
+        let reservation= {src, dst, date, "userId": id};
+        await addReservation(reservation)();
+        console.log('Reservation complete', src, dst, date, id);
+    }
 }
 
