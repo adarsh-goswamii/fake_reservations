@@ -92,6 +92,13 @@
       "date": "2021-12-24",
       "userId": 1,
       "id": 3
+    },
+    {
+      "src": "New Delhi",
+      "dst": "Mumbai",
+      "date": "2021-12-28",
+      "userId": 2,
+      "id": 4
     }
   ]
 }
