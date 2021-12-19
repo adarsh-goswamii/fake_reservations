@@ -12,7 +12,7 @@ const SearchInput = (props) => {
 
     return (
         <div className={styles.container}>
-            <input className={styles.input} list="cities" placeholder={props.placeholder} onChange={(e)=> props.onChange(e.target.value)}/>
+            <input value={props.value} className={styles.input} list="cities" placeholder={props.placeholder} onChange={(e)=> props.onChange(e.target.value)}/>
             <datalist className={styles.datalist} id="cities">
                 {
                     station.map(({id, name})=> {

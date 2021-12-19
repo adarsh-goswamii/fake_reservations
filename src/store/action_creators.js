@@ -118,3 +118,10 @@ export let addStation= (name, url)=> {
         if(response.status!= 201) console.log(response);
     }
 }
+
+export let deleteReservation= (id, _dispatch)=> {
+    return async(dispatch)=> {
+        let response= await axios.delete(`http://localhost:8000/reservations/${id}`);
+        _dispatch(actions.toggleUpdate());
+    };
+};

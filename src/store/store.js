@@ -5,7 +5,8 @@ const slice = createSlice({
     initialState: {
         loggedin: false,
         admin: false,
-        userId: -123
+        userId: -123, 
+        update: false
     },
 
     reducers: {
@@ -17,6 +18,9 @@ const slice = createSlice({
         }, 
         setUserId(state, data) {
             state.userId= data.payload;
+        }, 
+        toggleUpdate(state) {
+            state.update= !state.update;
         }
     }
 })

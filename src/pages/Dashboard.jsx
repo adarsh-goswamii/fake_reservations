@@ -8,26 +8,34 @@ import { getReservationAll, getReservationById, getUser } from '../store/action_
 import { useSelector } from 'react-redux';
 import AdminBooking from '../Components/AdminBooking';
 import AddStation from '../Components/AddStation';
+import SearchInput from '../Components/SearchInput';
 
 const Dashboard = () => {
     const [reservations, setReservations] = useState([]);
-    const [display, setDisplay] = useState(6);
+    const [display, setDisplay] = useState(4);
     const [totalPages, setTotalPages] = useState(1);
     const [currPage, setCurrPage] = useState(0);
+    const [src, setSrc]= useState(undefined);
+    const [dst, setDst]= useState(undefined);
 
-    let { userId: id, admin } = useSelector(state => state.state);
+    let { userId: id, admin, update } = useSelector(state => state.state);
 
     useEffect(async () => {
         if (!admin) {
             let data = await getReservationById(id)();
-            setReservations(data);
-            // data = await getUser(id)();
-            // setEmail(data.email);
+            await setReservations(data);
         } else {
             let data = await getReservationAll()();
-            setReservations(data);
+            await setReservations(data);
         }
-    }, [id]);
+
+        setReservations(prev=> prev.filter(({src: _src, dst: _dst})=> {
+            let ret= true;
+            if(src!== undefined && src.length!== 0) ret&= src=== _src;
+            if(dst!== undefined && dst.length!== 0) ret&= dst=== _dst;
+            return ret;
+        }));
+    }, [id, src, dst, update]);
 
     useEffect(() => {
         let val = Math.ceil(reservations.length / display);
@@ -35,23 +43,26 @@ const Dashboard = () => {
         setTotalPages(val);
     }, [reservations, display]);
 
-    console.log(display, totalPages);
-
     return (
         <div className={styles.container}>
             <Header pageOnDisplay="Dashboard" />
             <LeftNav />
 
             <div className={styles.hero}>
-                <h1 className={styles.heading}>Dashboard</h1>
+                    <h1 className={styles.heading}>Dashboard</h1>
+                <div className={styles.filter}>
+                    <h3 className={styles.filter_heading}>Filter your reservations</h3>
+                    <div className={styles.filter_container}><SearchInput value={src} placeholder={"Enter source"} onChange={setSrc} />
+                    <SearchInput value={dst} placeholder={"Enter destination"} onChange={setDst} /></div>
+                </div>
 
                 <div className={styles.list}>
                     {
-                        reservations.slice(currPage * display, currPage * display + display).map(({ src, dst, date, userId }) => (
+                        reservations.slice(currPage * display, currPage * display + display).map(({ id, src, dst, date, userId }) => (
                             admin ?
-                                <AdminBooking src={src} dst={dst} date={date} email={userId} />
+                                <AdminBooking src={src} dst={dst} date={date} email={userId} key={id} />
                                 :
-                                <Booking src={src} dst={dst} date={date} />
+                                <Booking src={src} dst={dst} date={date} key={id} id={id}/>
                         )
                         )}
 

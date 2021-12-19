@@ -5,6 +5,8 @@
     border: 1px solid black;
     background-color: white;
     outline: none;
+    margin-right: 2rem;
+    margin-top: 2rem;
 }
 
 @media only screen and (max-width: 640px) {

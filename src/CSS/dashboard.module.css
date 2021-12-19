@@ -16,6 +16,7 @@
 .list {
     /* background-color: aqua; */
     width: 95%;
+    margin-top: 1rem;
 }
 
 .pagination {
@@ -52,6 +53,15 @@
     transform: scale(1.2);
 }
 
+.filter_heading {
+    font-family: bold;
+    margin: 1rem 0rem 0rem;
+}
+
+.filter_container {
+    display: flex;
+}
+
 @media only screen and (max-width: 1280px) {
 }
 
@@ -65,4 +75,7 @@
 }
 
 @media only screen and (max-width: 640px) {
+    .filter_container {
+        flex-direction: column;
+    }
 }
