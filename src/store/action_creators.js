@@ -19,6 +19,7 @@ export let Stations = () => {
 export let validateUser = (_email, _pass) => {
     return async (dispatch) => {
         let ret = -1;
+        console.log(_email, _pass);
         let response = await axios.get(`http://localhost:8000/users`);
         let data = response.data;
         await data.map(async (user) => {
@@ -107,5 +108,13 @@ export let getReservationAll = () => {
         let response = await axios.get('http://localhost:8000/reservations/');
         let data = response.data;
         return data;
+    }
+}
+
+export let addStation= (name, url)=> {
+    return async(dispatch)=> {
+        console.log({name, url});
+        let response= await axios.post('http://localhost:8000/stations/', {name, url});
+        if(response.status!= 201) console.log(response);
     }
 }

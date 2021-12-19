@@ -5,9 +5,10 @@ const Input= (props) => {
     return (
         <input 
             type={props.type} 
+            value={props.value}
             className={styles.input}
             placeholder={props.placeholder}
-            onChange={e => props.setValue(prev => ({ ...prev, keyword: `${e.target.value}` }))} />
+            onChange={e => props.setValue(`${e.target.value}` )} />
     );
 }
 

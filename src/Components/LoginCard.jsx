@@ -18,12 +18,12 @@ const LoginCard = () => {
             <div className={styles.input}>
                 <h1 className={styles.heading}>Login</h1>
                 <div>
-                    <Input type="text" placeholder="Email Address" setValue={setEmail}></Input>
-                    <Input type="password" placeholder="Password" setValue={setPassword}></Input>
+                    <Input value={email} type="text" placeholder="Email Address" setValue={setEmail}></Input>
+                    <Input value={password} type="password" placeholder="Password" setValue={setPassword}></Input>
                 </div>
                 <div className={styles.btn_container}>
                     <p className={styles.link} onClick={() => history.push('/register')}>Forgot your password ?</p>
-                    <FilledButton text="Login" enable={true} onClick={() => LoginValid(email.keyword, password.keyword, dispatch, history)()} />
+                    <FilledButton text="Login" enable={true} onClick={() => LoginValid(email, password, dispatch, history)()} />
                 </div>
             </div>
             <div className={`${styles.info} ${styles.login_info}`}>

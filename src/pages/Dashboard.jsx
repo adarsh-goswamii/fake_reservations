@@ -7,6 +7,7 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { getReservationAll, getReservationById, getUser } from '../store/action_creators';
 import { useSelector } from 'react-redux';
 import AdminBooking from '../Components/AdminBooking';
+import AddStation from '../Components/AddStation';
 
 const Dashboard = () => {
     const [reservations, setReservations] = useState([]);
@@ -64,6 +65,7 @@ const Dashboard = () => {
                         <BsChevronRight className={styles.icon} onClick={() => setCurrPage(prev => Math.min(totalPages - 1, prev + 1))} />
                     </div>
                 </div>
+                <AddStation />
             </div>
         </div>
     );

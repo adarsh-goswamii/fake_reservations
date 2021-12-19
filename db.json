@@ -18,6 +18,12 @@
       "number": "8755689076",
       "password": "adarsh.",
       "id": 3
+    },
+    {
+      "email": "poonam@gmail.com",
+      "number": "9876543211",
+      "password": "poonam.",
+      "id": 4
     }
   ],
   "stations": [
@@ -60,6 +66,28 @@
       "id": 8,
       "name": "Bangalore",
       "url": "https://i.pinimg.com/564x/88/61/3a/88613a11e92b37909c3cfbc1058d0d15.jpg"
+    },
+    {
+      "name": "lcunow",
+      "url": "https://i.pinimg.com/564x/4a/c5/77/4ac5775a3ab84b10086e000c1a04909d.jpg",
+      "id": 9
+    },
+    {
+      "name": "lucknow",
+      "url": "addStation(name.keyword, url.keyword)()",
+      "id": 10
+    },
+    {
+      "url": "value={name}",
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "name": "lk",
+      "url": "lk",
+      "id": 13
     }
   ],
   "admin": {
@@ -171,6 +199,13 @@
       "dst": "Mumbai",
       "date": "21-10-2021",
       "userId": 1
+    },
+    {
+      "src": "lk",
+      "dst": "New Delhi",
+      "date": "2021-12-19",
+      "userId": 1,
+      "id": 8
     }
   ]
 }
