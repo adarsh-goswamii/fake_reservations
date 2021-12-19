@@ -33,14 +33,14 @@ const PlanJourney = () => {
                     <h1 className={styles.heading}>Create a reservation</h1>
                     <div className={styles.route_container}>
                         <div className={styles.source}>
-                            <SearchInput placeholder="Enter Source" onChange={setSource}/>
+                            <SearchInput value={source} placeholder="Enter Source" onChange={setSource}/>
                             <div className={styles.card} style={{ backgroundImage: `url(${src})` }}>
                                 <p className={styles.name}>{source=== undefined? "Select a location": source}</p>
                             </div>
                         </div>
 
                         <div className={styles.source}>
-                            <SearchInput placeholder="Enter Destination" onChange={setDestination}/>
+                            <SearchInput value={destination} placeholder="Enter Destination" onChange={setDestination}/>
                             <div className={styles.card} style={{ backgroundImage: `url(${dst})` }}>
                                 <p className={styles.name}>{destination=== undefined? "Select a location": destination}</p>
                             </div>
@@ -48,9 +48,11 @@ const PlanJourney = () => {
                     </div>
 
                     <label htmlFor="datepicker" className={styles.label}>Select Date</label>
-                    <input className={styles.date} type="date" id="datepicker" onChange={(e)=> setDate(e.target.value)}/>
+                    <input className={styles.date} value={date} type="date" id="datepicker" onChange={(e)=> setDate(e.target.value)}/>
 
-                    <div><FilledButton text="Book Reservation" enable={true} onClick={()=> bookReservation(source, destination, date, id)()} /></div>
+                    <div><FilledButton text="Book Reservation" enable={true} onClick={()=> {
+                        bookReservation(source, destination, date, id)();
+                    }} /></div>
                 </div>
 
             </div>

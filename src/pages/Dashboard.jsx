@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import AdminBooking from '../Components/AdminBooking';
 import AddStation from '../Components/AddStation';
 import SearchInput from '../Components/SearchInput';
+import { useHistory } from 'react-router-dom';
 
 const Dashboard = () => {
     const [reservations, setReservations] = useState([]);
@@ -17,6 +18,7 @@ const Dashboard = () => {
     const [currPage, setCurrPage] = useState(0);
     const [src, setSrc]= useState(undefined);
     const [dst, setDst]= useState(undefined);
+    let history= useHistory();
 
     let { userId: id, admin, update } = useSelector(state => state.state);
 
@@ -57,10 +59,11 @@ const Dashboard = () => {
                 </div>
 
                 <div className={styles.list}>
+                    {reservations.length===0? <h3 className={styles.backup_text}>No Reservations to display <span onClick={()=> history.push('/plan-journey')} className={styles.link}>{admin? "": "Add one"}</span></h3>: <></>}
                     {
                         reservations.slice(currPage * display, currPage * display + display).map(({ id, src, dst, date, userId }) => (
                             admin ?
-                                <AdminBooking src={src} dst={dst} date={date} email={userId} key={id} />
+                                <AdminBooking src={src} dst={dst} date={date} email={userId} key={id} id={id}/>
                                 :
                                 <Booking src={src} dst={dst} date={date} key={id} id={id}/>
                         )

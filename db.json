@@ -73,95 +73,25 @@
   },
   "reservations": [
     {
-      "id": 2,
-      "src": "Agra",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "src": "Chandigarh",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "src": "Lucknow",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
       "src": "Mumbai",
-      "dst": "Jalandhar",
+      "dst": "Chandigarh",
       "date": "2021-12-25",
-      "userId": 3,
-      "id": 6
-    },
-    {
-      "id": 4,
-      "src": "Lucknow",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "src": "Lucknow",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "src": "Lucknow",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "src": "Lucknow",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "src": "Lucknow",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "src": "Lucknow",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "src": "Lucknow",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "src": "Lucknow",
-      "dst": "Mumbai",
-      "date": "21-10-2021",
-      "userId": 1
-    },
-    {
-      "src": "lk",
-      "dst": "New Delhi",
-      "date": "2021-12-19",
       "userId": 1,
-      "id": 8
+      "id": 1
+    },
+    {
+      "src": "Bangalore",
+      "dst": "Chandigarh",
+      "date": "2021-12-25",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "src": "Noida",
+      "dst": "Ludhiana",
+      "date": "2021-12-24",
+      "userId": 1,
+      "id": 3
     }
   ]
 }
