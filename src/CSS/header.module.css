@@ -1,0 +1,70 @@
+.container {
+    width: 100%;
+    padding: .5rem 2rem;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    max-width: 1920px;
+}
+
+.branding {
+    font-family: Lemon;
+}
+
+.user_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.middle {
+    font-family: light;
+}
+
+.email {
+    margin-right: 1rem;
+    font-family: light;
+}
+
+@media only screen and (max-width: 1280px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 832px) {
+    .branding {
+        font-size: 1.4rem;
+    }
+
+    .middle {
+        font-size: 1rem;
+    }
+
+    .email {
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+    }
+
+}
+
+@media only screen and (max-width: 640px) {
+    .container {
+        padding: .5rem 1rem;
+    }
+
+    .branding {
+        font-size: 1rem;
+    }
+
+    .middle {
+        font-size: .8rem;
+    }
+}

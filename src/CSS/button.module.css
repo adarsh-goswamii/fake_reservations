@@ -1,0 +1,42 @@
+.container {
+    font-size: 16px;
+    padding: .5rem 3rem;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-family: semibold;
+    
+    color: white;
+    cursor: pointer;
+}
+
+.outline {
+    border: 2px solid white;
+}
+
+.enable {
+    background-color: var(--primary);
+}
+
+.disable {
+    background-color: #868282;
+}
+
+@media only screen and (max-width: 1280px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 832px) {
+    .container {
+        padding: .5rem 2rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .container {
+        padding: .5rem 1rem;
+        font-size: .8rem;
+    }
+}

@@ -1,0 +1,69 @@
+.container {
+    width: 100%;
+}
+
+.hero {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 94px 0px 0px 220px;
+}
+
+.heading {
+    font-family: bold;
+
+}
+
+.list {
+    /* background-color: aqua; */
+    width: 95%;
+    height: 20rem;
+}
+
+.pagination {
+    margin-top: 44px;
+    width: 100%;
+    display: flex;
+    padding: 32px ;
+    justify-content: space-between;
+}
+
+.icon {
+    cursor: pointer;
+    transform: scale(2);
+    transition: .3s ease;
+}
+
+.icon:hover {
+    transform: scale(2.2);
+}
+
+.pages {
+    display: flex;
+    justify-content: space-around;
+}
+
+.number {
+    font-family: semibold;
+    margin: 0px 16px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.number:hover {
+    transform: scale(1.2);
+}
+
+@media only screen and (max-width: 1280px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 832px) {
+    .hero {
+        padding: 94px 0px 0px 100px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+}

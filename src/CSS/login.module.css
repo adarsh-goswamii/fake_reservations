@@ -1,0 +1,142 @@
+.login_page {
+    width: 100%;
+    /* background-image: url('https://images.pexels.com/photos/5387999/pexels-photo-5387999.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    background-color: aqua;
+    width: 100%;
+    height: auto;
+}
+
+.login_page:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000099;
+}
+
+.branding {
+    color: white;
+    z-index: 2;
+    font-family: bold;
+}
+
+.container {
+    margin: 2rem;
+    width: 70%;
+    min-height: 450px;
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    z-index: 2;
+}
+
+.input {
+    flex-basis: 60%;
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.info {
+    flex-basis: 40%;
+    background-color: var(--primary);
+    border-radius: 6px;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.heading {
+    font-family: bold;
+}
+
+.para {
+    font-family: light;
+    margin-bottom: 6px;
+}
+
+.link {
+    font-family: light;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.btn_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+@media only screen and (max-width: 1280px) {
+}
+
+@media only screen and (max-width: 1024px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 832px) {
+    .container {
+        width: 90%;
+    }
+
+    .input {
+        padding: 2rem 2rem;
+    }
+
+    .info {
+        padding: 4rem 1.6rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .heading {
+        font-size: 28px;
+    }
+
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .info {
+        padding: 2rem;
+    }
+
+    .para {
+        margin: 1rem 0rem;
+    }
+
+    .login_info {
+        order: -1;
+    }
+
+}

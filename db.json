@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "adarsh@gmail.com",
+      "password": "adarsh.",
+      "number": "1234567890"
+    },
+    {
+      "email": "sparsh@gmail.com",
+      "number": "1234567899",
+      "password": "sparsh.",
+      "id": 2
+    }
+  ],
+  "stations": [
+    {
+      "id": 1,
+      "name": "New Delhi"
+    },
+    {
+      "id": 2,
+      "name": "Mumbai"
+    },
+    {
+      "id": 3,
+      "name": "Chandigarh"
+    },
+    {
+      "id": 4,
+      "name": "Jalandhar"
+    },
+    {
+      "id": 5,
+      "name": "Ludhiana"
+    },
+    {
+      "id": 6,
+      "name": "Agra"
+    },
+    {
+      "id": 7,
+      "name": "Noida"
+    },
+    {
+      "id": 8,
+      "name": "Bangalore"
+    }
+  ],
+  "admin": {
+    "name": "admin@fake.com",
+    "password": "admin"
+  }
+}

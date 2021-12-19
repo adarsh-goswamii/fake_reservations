@@ -1,0 +1,53 @@
+.container {
+    background-color: #FF5C69;
+    padding: 4rem .5rem 2rem;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+}
+
+.icon_container {
+    padding: 8px 16px;
+    background-color: #ffffff33;
+    margin: 2rem 0rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    transform: scale(1.5);
+    color: white;
+    pointer-events: none;
+}
+
+.icon_title {
+    color: white;
+    margin-left: 12px;
+}
+
+.icon_container:hover {
+    background-color: #E63946;
+}
+
+@media only screen and (max-width: 1280px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 832px) {
+    .icon_title {
+        visibility: hidden;
+        position: absolute;
+        pointer-events: none;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+}
