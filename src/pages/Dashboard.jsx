@@ -10,6 +10,7 @@ import AdminBooking from '../Components/AdminBooking';
 import AddStation from '../Components/AddStation';
 import SearchInput from '../Components/SearchInput';
 import { useHistory } from 'react-router-dom';
+import Number from '../Components/Number';
 
 const Dashboard = () => {
     const [reservations, setReservations] = useState([]);
@@ -73,7 +74,7 @@ const Dashboard = () => {
                         <BsChevronLeft className={styles.icon} onClick={() => setCurrPage(prev => Math.max(0, prev - 1))} />
                         <div className={styles.pages}>
                             {
-                                [...Array.from({ length: totalPages }, (_, i) => i + 1)].map(i => <p className={styles.number} key={i}>{i}</p>)
+                                [...Array.from({ length: totalPages }, (_, i) => i + 1)].map(i => <Number i={i} key={i} currPage={currPage} />)
                             }
                         </div>
                         <BsChevronRight className={styles.icon} onClick={() => setCurrPage(prev => Math.min(totalPages - 1, prev + 1))} />

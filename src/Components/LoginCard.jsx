@@ -6,13 +6,14 @@ import FilledButton from './Buttons/FilledButton';
 import { useHistory } from 'react-router-dom';
 import { checkEmail, LoginValid } from '../store/functions';
 import { useDispatch } from 'react-redux';
+import { deleteUser } from '../store/action_creators';
 
 const LoginCard = () => {
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
     let dispatch= useDispatch();
     let history= useHistory();
-
+    
     return (
         <div className={styles.container}>
             <div className={styles.input}>

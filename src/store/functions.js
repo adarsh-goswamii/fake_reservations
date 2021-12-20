@@ -56,6 +56,7 @@ export const bookReservation = (src, dst, date, id) => {
     return async (dispatch) => {
         let reservation= {src, dst, date, "userId": id};
         await addReservation(reservation)();
+        alert("Reservation added successfully.")
         console.log('Reservation complete', src, dst, date, id);
     }
 }

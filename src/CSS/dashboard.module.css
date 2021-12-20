@@ -67,6 +67,11 @@
     font-size: 16px;
 }
 
+/* .active_page {
+    transform: scale(1.5);
+    font-family: bold;
+} */
+
 .link {
     color: blue;
     text-decoration: underline;

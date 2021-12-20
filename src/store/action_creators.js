@@ -120,3 +120,9 @@ export let deleteReservation= (id, _dispatch)=> {
         _dispatch(actions.toggleUpdate());
     };
 };
+
+// export let deleteUser= () => {
+//     return async(dispatch)=> {
+//         let repsonse= await axios.delete(`${link}/users/5`);
+//     }
+// }
