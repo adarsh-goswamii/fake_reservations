@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { actions } from './store';
 
-const link= "http://adarsh.techlious.com";
+const link= "https://adarsh.techlious.com";
 export let Stations = () => {
     return async (dispatch) => {
         let ret = [];
