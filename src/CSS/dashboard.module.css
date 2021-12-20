@@ -20,11 +20,11 @@
 }
 
 .pagination {
-    margin-top: 44px;
+    /* margin-top: 44px; */
     width: 100%;
     display: flex;
     padding: 32px ;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .icon {
