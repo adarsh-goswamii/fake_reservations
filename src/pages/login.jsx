@@ -5,7 +5,7 @@ import LoginCard from '../Components/LoginCard';
 const Login = () => {
     return (
         <div className={styles.login_page}>
-                <h1 className={styles.branding}>Fake Registration</h1>
+                <h1 className={styles.branding}>Fake Reservation</h1>
                 <LoginCard />
         </div>
     );

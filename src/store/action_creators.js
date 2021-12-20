@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { actions } from './store';
 
+const link= "http://adarsh.techlious.com";
 export let Stations = () => {
     return async (dispatch) => {
         let ret = [];
 
-        let response = await axios.get(`http://localhost:8000/stations`);
+        let response = await axios.get(`${link}/stations`);
         let data = response.data;
         await data.map(async (station) => {
             let { id, name } = station;
@@ -20,7 +21,7 @@ export let validateUser = (_email, _pass) => {
     return async (dispatch) => {
         let ret = -1;
         console.log(_email, _pass);
-        let response = await axios.get(`http://localhost:8000/users`);
+        let response = await axios.get(`${link}/users`);
         let data = response.data;
         await data.map(async (user) => {
             let { email, password, id } = user;
@@ -31,7 +32,7 @@ export let validateUser = (_email, _pass) => {
         });
 
         if (ret === -1) {
-            response = await axios.get(`http://localhost:8000/admin`);
+            response = await axios.get(`${link}/admin`);
             let data = response.data;
             let { name, password } = data;
 
@@ -46,21 +47,15 @@ export let validateUser = (_email, _pass) => {
 
 export let addUser = (email, number, password) => {
     return async (dispatch) => {
-        let data = await axios.post('http://localhost:8000/users', { email, number, password });
+        let data = await axios.post(`${link}/users`, { email, number, password });
         if (data.data !== undefined) return data.data.id;
     };
 };
 
-export let addReservations = (id) => {
-    return async (dispatch) => {
-        // let respose= await.post()
-    }
-}
-
 export let getUser = (_id) => {
     return async (dispatch) => {
         let ret = undefined;
-        let response = await axios.get('http://localhost:8000/users');
+        let response = await axios.get(`${link}/users`);
         let data = response.data;
 
         data.map(({ id, email, password }) => {
@@ -74,7 +69,7 @@ export let getUser = (_id) => {
 export let getStationImage = (_name) => {
     return async (dispatch) => {
         let ret = undefined;
-        let response = await axios.get('http://localhost:8000/stations');
+        let response = await axios.get(`${link}/stations`);
         let data = response.data;
 
         data.map(({ url, name }) => {
@@ -88,14 +83,14 @@ export let getStationImage = (_name) => {
 export let addReservation = (res) => {
     return async (dispatch) => {
         console.log("res", res);
-        let response = await axios.post(`http://localhost:8000/reservations/`, res);
+        let response = await axios.post(`${link}/reservations/`, res);
         if (response.status !== 201) console.log(response);
     }
 }
 
 export let getReservationById = (id) => {
     return async (dispatch) => {
-        let response = await axios.get('http://localhost:8000/reservations/');
+        let response = await axios.get(`${link}/reservations/`);
         let data = response.data;
 
         let ret = data.filter(reservation => reservation.userId === id);
@@ -105,7 +100,7 @@ export let getReservationById = (id) => {
 
 export let getReservationAll = () => {
     return async (dispatch) => {
-        let response = await axios.get('http://localhost:8000/reservations/');
+        let response = await axios.get(`${link}/reservations/`);
         let data = response.data;
         return data;
     }
@@ -114,14 +109,14 @@ export let getReservationAll = () => {
 export let addStation= (name, url)=> {
     return async(dispatch)=> {
         console.log({name, url});
-        let response= await axios.post('http://localhost:8000/stations/', {name, url});
+        let response= await axios.post(`${link}/stations/`, {name, url});
         if(response.status!= 201) console.log(response);
     }
 }
 
 export let deleteReservation= (id, _dispatch)=> {
     return async(dispatch)=> {
-        let response= await axios.delete(`http://localhost:8000/reservations/${id}`);
+        let response= await axios.delete(`${link}/reservations/${id}`);
         _dispatch(actions.toggleUpdate());
     };
 };

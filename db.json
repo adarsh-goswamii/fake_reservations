@@ -99,6 +99,13 @@
       "date": "2021-12-28",
       "userId": 2,
       "id": 4
+    },
+    {
+      "src": "New Delhi",
+      "dst": "Chandigarh",
+      "date": "2021-12-25",
+      "userId": 1,
+      "id": 5
     }
   ]
 }
