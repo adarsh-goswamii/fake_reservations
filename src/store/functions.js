@@ -33,7 +33,7 @@ export let LoginValid = (email, password, _dispatch, history) => {
         let valid = checkEmail(email);
         if (!valid) { alert("Enter a valid email"); return; }
         valid &= password !== undefined;
-        valid &= String(password).length > 6;
+        valid &= String(password).length >= 5;
         if (!valid) { alert("Password too short"); return; }
 
         let id = await validateUser(email, password)();
