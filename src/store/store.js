@@ -6,7 +6,9 @@ const slice = createSlice({
         loggedin: false,
         admin: false,
         userId: -123, 
-        update: false
+        update: false,
+        userEmail: '', 
+        stations: []
     },
 
     reducers: {
@@ -21,6 +23,12 @@ const slice = createSlice({
         }, 
         toggleUpdate(state) {
             state.update= !state.update;
+        }, 
+        setUserName(state, action) {
+            state.userEmail= action.payload;
+        },
+        setStations(state, action) {
+            state.stations= action.payload;
         }
     }
 })

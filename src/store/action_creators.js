@@ -9,8 +9,8 @@ export let Stations = () => {
         let response = await axios.get(`${link}/stations`);
         let data = response.data;
         await data.map(async (station) => {
-            let { id, name } = station;
-            ret.push({ id, name });
+            let { id, name, url } = station;
+            ret.push({ id, name, url });
         });
 
         return ret;
@@ -66,19 +66,19 @@ export let getUser = (_id) => {
     }
 }
 
-export let getStationImage = (_name) => {
-    return async (dispatch) => {
-        let ret = undefined;
-        let response = await axios.get(`${link}/stations`);
-        let data = response.data;
+// export let getStationImage = (_name) => {
+//     return async (dispatch) => {
+//         let ret = undefined;
+//         let response = await axios.get(`${link}/stations`);
+//         let data = response.data;
 
-        data.map(({ url, name }) => {
-            if (_name === name) ret = url;
-        });
+//         data.map(({ url, name }) => {
+//             if (_name === name) ret = url;
+//         });
 
-        return ret;
-    }
-}
+//         return ret;
+//     }
+// }
 
 export let addReservation = (res) => {
     return async (dispatch) => {

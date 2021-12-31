@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from 'react';
+import { useSelector } from 'react-redux';
 import styles from '../CSS/search_input.module.css';
 import { Stations } from '../store/action_creators';
 
 const SearchInput = (props) => {
     const [station, setStation]= useState([]); 
+    let {stations} = useSelector(state=> state.state);
 
-    useEffect( async() => {
-        let data= await Stations()();
+    useEffect(() => {
+        let data= 
         setStation(data);
-    }, []);
+    }, [stations]);
 
     return (
         <div className={styles.container}>

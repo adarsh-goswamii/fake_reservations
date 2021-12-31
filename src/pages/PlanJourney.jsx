@@ -21,7 +21,6 @@ const PlanJourney = () => {
         setSrc(url);
         url= await getStationImage(destination)();
         setDst(url);
-
     }, [source, destination]);
 
     return (

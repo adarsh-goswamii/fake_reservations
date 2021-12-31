@@ -7,14 +7,13 @@ import { getUser } from '../store/action_creators';
 import { useDispatch } from 'react-redux';
 
 const Header= (props)=> {
-    let {userId, admin}= useSelector(state=> state.state);
+    let {userId, admin, userEmail}= useSelector(state=> state.state);
     const [email, setEmail]= useState(undefined);
     let dispatch= useDispatch();
 
-    useEffect(async()=> {
-        let data= await getUser(userId)();
-        setEmail(data.email);
-    }, userId);
+    useEffect(()=> {
+        setEmail(userEmail);
+    }, userEmail);
 
     return (
         <div className={styles.container}>

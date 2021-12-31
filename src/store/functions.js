@@ -41,6 +41,7 @@ export let LoginValid = (email, password, _dispatch, history) => {
         else {
             await _dispatch(actions.toggleLoggedin());
             await _dispatch(actions.setUserId(id));
+            await _dispatch(actions.setUserName(email));
             if(id== 0) _dispatch(actions.toggleAdmin());
             history.replace('/plan-journey');
             console.log('logged in', id);

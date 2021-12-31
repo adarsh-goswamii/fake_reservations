@@ -48,3 +48,18 @@ body {
     font-family: Lemon;
     src: url(../fonts/Lemon\ Tuesday.otf);
 }
+
+.parent {
+    width: 20rem;
+    height: 20rem;
+    position: relative;
+}
+
+.child {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
